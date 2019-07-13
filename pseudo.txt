@@ -1,0 +1,23 @@
+Word randomly generated
+    - Create a few words within an array
+    - Have the program randomly select a number based off the length + 1 of this array ....
+    - Pull the word from the line based on the randomly selected number
+    - 
+
+User guesses all letter in each hidden value
+    - create an array with each letter as a value  
+    - prompt the user to enter their answer and save it into a variable.
+    - Create an array with each letter of the new users guesses
+    - create a conditional to compare first letter of 
+
+User has subset of tries until failure
+    - Create an if statement comparing each letter of the index value 
+        - if conditional is ever false, user loses
+
+
+Count the amount time the user plays
+    - Create a start button
+    - create a int variable
+    - Every time the user starts a new game, add 1 to the variable
+    - document.write on the page in a selected section targeting the id of thhat section and output the value of the variable
+
