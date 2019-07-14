@@ -13,26 +13,40 @@ let hangMan = [];
 let start = 0;
 let guessCount = 0;
 let lose = 5;
+let winCounter = 0;
+let win = 0;
 
 // FUNCTIONS
 //found function - runs if a letter matches
 let found = function(e){
+    let x = 0;
     for(i=0;i<hangMan.length;i++){
         let upper = hangMan[i].toUpperCase();
             if(upper === e){
+                x++
+                winCounter++
+                alert(`${upper} === ${e}`)
                 let par = document.createElement(`p`);
                 par.append(e);
                 let removeGuess = document.getElementById(e + "2");
                 removeGuess.replaceWith(par);
-                alert(`This is ${e}`)
-                return true
+
+                
+                if(win === winCounter){
+                    alert(`User has Won the game`);
+                    document.location.reload(true);
+                }  
             }
-            else{
-                return false
-            }
-        };
+        }
+        if(x>0){
+            return true
+        }
+        else{
+            return false
+        }
      }
 
+// displays the users guess 
 let addGuess = function(e) {
     let button = document.createElement(`div`);
     button.className = "class letter-button letter letter-button-color";
@@ -54,7 +68,7 @@ window.onload = function(){
 
 // initiates code on event keypress
 document.addEventListener("keyup", keyDownTextField);
-    function keyDownTextField(e) {
+function keyDownTextField(e) {
     var keyCode = e.key;
     console.log(keyCode);
     console.log(start);
@@ -70,6 +84,7 @@ document.addEventListener("keyup", keyDownTextField);
         for (var i = 0; i < compChoice.length; i++) {
             hangMan.push(compChoice.charAt(i));
         }
+        win = hangMan.length;
         // display character guess with hidden characters
         for(i=0;i<hangMan.length;i++){
             let par = document.createElement(`p`);
@@ -79,7 +94,6 @@ document.addEventListener("keyup", keyDownTextField);
             par.append("_");
             document.getElementById("target").appendChild(par);
         };
-
       } 
 
 // USER IS SELECTING LETTERS
@@ -89,6 +103,7 @@ document.addEventListener("keyup", keyDownTextField);
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
                 addGuess(keyCode);
+                
                 // runs each guess through the found function
                 let func = found(keyCode);
                 console.log(`This is a test after func: ${func}`);
