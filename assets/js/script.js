@@ -43,15 +43,24 @@ document.addEventListener("keyup", keyDownTextField);
         for (var i = 0; i < compChoice.length; i++) {
             hangMan.push(compChoice.charAt(i));
         }
-        let answer = document.createElement(`p`);
-        
+        // display character guess with hidden characters
+        for(i=0;i<hangMan.length;i++){
+            let par = document.createElement(`p`);
+            let hang = hangMan[i];
+            par.className = "class letter-button letter letter-button-color";
+            par.id = hang.toUpperCase() + "2";
+            par.append("_");
+            document.getElementById("target").appendChild(par);
+        };
+
       } 
 
-    
+// USER IS SELECTING LETTERS
       if (keyCode !== `Enter` && start === 1) {
           alert(`Hidden Choice: ${compChoice}`);
           alert(`Hangman Array: ${hangMan}`)
         keyCode=keyCode.toUpperCase();
+    
     // Most logic for game begins here
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
