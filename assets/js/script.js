@@ -1,25 +1,31 @@
+
 // Objects
 
 // Call example 
 // console.log(`I found my ${theCobWeb.biggestWeb.biggerWeb.smallerWeb.tinyWeb.items[3]}!`);
 
+//VARIABLES
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 let userGuess = [];
 let artist = ["artist1", "artist2", "artist3"];
-
 let counter = 0;
 let start = 0;
 
-let handler = [];
+//loads available letters to guess
+window.onload = function(){
+    for(i=0;i<alphabet.length;i++){
+    let button = document.createElement(`div`);
+    button.className = "class letter-button letter letter-button-color";
+    button.id = `${alphabet[i]}`
+    button.append(alphabet[i]);
+    document.getElementById("buttons").appendChild(button);
+    };
+}
 
-    window.addEventListener("keyup",    handler); 
-    // window.addEventListener("keydown",  handler); 
-    // window.addEventListener("keypress", handler);
 
-    document.addEventListener("keyup", keyDownTextField);
-    
+// initiates code on event keypress
+document.addEventListener("keyup", keyDownTextField);
     function keyDownTextField(e) {
-
     var keyCode = e.key;
     console.log(keyCode);
     console.log(start);
@@ -30,19 +36,28 @@ let handler = [];
       start = start + 1;
       } 
       if (keyCode !== `Enter` && start === 1) {
-        handler.push(keyCode);
+        
         keyCode=keyCode.toUpperCase();
+    // Most logic for game begins here
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
+                // Removes alphabet element from the letters left available on the left display
+                let removeGuess = document.getElementById(keyCode);
+                removeGuess.remove();
                 console.log("True");
+                
+                // Transferrs key value from alphabet array to userGuess array
                 alphabet.splice(i, 1);
                 userGuess.push(keyCode);
+
+                //
+
+
             }
         }
+
         console.log(alphabet);
         console.log(userGuess);
-
-      
       }
     }
 // gameStart function(){
@@ -51,3 +66,4 @@ let handler = [];
 
 //     }
 // }
+
