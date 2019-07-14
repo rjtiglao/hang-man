@@ -10,9 +10,11 @@ let userGuess = [];
 let artist = ["Kaskade", "Tiesto", "Skrillex", "Afrojack"];
 let compChoice;
 let hangMan = [];
-let counter = 0;
 let start = 0;
+let guessCount = 0;
+let lose = 5;
 
+// FUNCTIONS
 //found function - runs if a letter matches
 let found = function(e){
     for(i=0;i<hangMan.length;i++){
@@ -23,9 +25,15 @@ let found = function(e){
                 let removeGuess = document.getElementById(e + "2");
                 removeGuess.replaceWith(par);
                 alert(`This is ${e}`)
+                return true
+            }
+            else{
+                return false
             }
         };
      }
+
+
 //loads available letters to guess
 window.onload = function(){
     for(i=0;i<alphabet.length;i++){
@@ -72,12 +80,19 @@ document.addEventListener("keyup", keyDownTextField);
       if (keyCode !== `Enter` && start === 1) {
           
         keyCode=keyCode.toUpperCase();
-    
     // Most logic for game begins here
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
                 // runs each guess through the found function
-                found(keyCode);
+                let func = found(keyCode);
+                console.log(`This is a test after func: ${func}`);
+                if(func === false){
+                    guessCount++
+                    console.log(`gustCount is now ${guessCount}`);
+                    if(guessCount === lose){
+                        alert(`User has lost the game`);
+                    }
+                }
 
                 // Removes alphabet element from the letters left available on the left display
                 let removeGuess = document.getElementById(keyCode);
@@ -94,10 +109,3 @@ document.addEventListener("keyup", keyDownTextField);
         console.log(userGuess);
       }
     }
-// gameStart function(){
-//     for(i=0;i<artist.length;i++){
-//         console.log(artist[i])
-
-//     }
-// }
-
