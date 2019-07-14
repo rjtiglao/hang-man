@@ -16,6 +16,8 @@ let lose = 5;
 let winCounter = 0;
 let win = 0;
 
+
+
 // FUNCTIONS
 //found function - runs if a letter matches
 let found = function(e){
@@ -77,7 +79,9 @@ function keyDownTextField(e) {
 
     /// GAME STARTS AFTER ENTER
       if(keyCode === 'Enter' && start === 0) {
-      alert("Please start guessing!");
+      alert("Let the game begin!");
+      let audio = new Audio(`./assets/media/sun-moon2.m4a`);
+    audio.play();
       start = start + 1;
       // Computer Choice
        let num = Math.floor(Math.random() * artist.length);

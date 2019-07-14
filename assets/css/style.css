@@ -35,7 +35,15 @@
     left:178px; top:92px; right:0; bottom:0;
     border: solid;
     border-color: black;
-    background-color: #001A26;
+    /* background-color: #001A26; */
+    /* background-image: url(../images/background-network.mp4); */
+}
+.main video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: fill;
 }
 
 .removeBullets{
