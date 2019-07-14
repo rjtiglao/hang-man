@@ -30,7 +30,7 @@ let found = function(e){
                 par.append(e);
                 let removeGuess = document.getElementById(e + "2");
                 removeGuess.replaceWith(par);
-
+                
                 
                 if(win === winCounter){
                     alert(`User has Won the game`);
@@ -39,6 +39,8 @@ let found = function(e){
             }
         }
         if(x>0){
+            let audio = new Audio(`./assets/media/ding.mp3`);
+            audio.play();
             return true
         }
         else{
