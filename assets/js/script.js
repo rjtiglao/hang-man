@@ -33,7 +33,6 @@ let found = function(e){
                 let removeGuess = document.getElementById(e + "2");
                 removeGuess.replaceWith(par);
                 
-                
                 if(win === winCounter){
                     alert(`User has Won the game`);
                     document.location.reload(true);
@@ -46,6 +45,7 @@ let found = function(e){
             return true
         }
         else{
+
             return false
         }
      }
@@ -76,12 +76,16 @@ function keyDownTextField(e) {
     var keyCode = e.key;
     console.log(keyCode);
     console.log(start);
+    let audio = new Audio(`./assets/media/sun-moon2.m4a`);
+    audio.play();
 
     /// GAME STARTS AFTER ENTER
       if(keyCode === 'Enter' && start === 0) {
-      alert("Let the game begin!");
-      let audio = new Audio(`./assets/media/sun-moon2.m4a`);
-    audio.play();
+      alert(`Here are the rules:  `);
+      alert("If you guess the whole word, you win!");
+      alert(`If you guess wrong ${lose} times you lose! `);
+      alert("Turn up the music and let the game begin!");
+
       start = start + 1;
       // Computer Choice
        let num = Math.floor(Math.random() * artist.length);
@@ -116,7 +120,7 @@ function keyDownTextField(e) {
                 /// return of function goes through win/loss logic
                 if(func === false){
                     guessCount++
-                    console.log(`gustCount is now ${guessCount}`);
+                    alert(`You have guessed ${guessCount}/${lose}.`);
                     if(guessCount === lose){
                         alert(`User has lost the game`);
                         document.location.reload(true);
