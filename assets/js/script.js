@@ -7,7 +7,7 @@
 //VARIABLES
 let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
 let userGuess = [];
-let artist = ["artist1", "artist2", "artist3"];
+let artist = ["Kaskade", "Tiesto", "Skrillex", "Afrojack"];
 let compChoice;
 let hangMan = [];
 let counter = 0;
@@ -22,11 +22,7 @@ let found = function(e){
                 par.append(e);
                 let removeGuess = document.getElementById(e + "2");
                 removeGuess.replaceWith(par);
-
                 alert(`This is ${e}`)
-                
-                
-                // document.getElementById(e + "2").appendChild(par);
             }
         };
      }
