@@ -33,7 +33,13 @@ let found = function(e){
         };
      }
 
-
+let addGuess = function(e) {
+    let button = document.createElement(`div`);
+    button.className = "class letter-button letter letter-button-color";
+    button.id = `${e}`
+    button.append(e);
+    document.getElementById("guessed").appendChild(button);
+}
 //loads available letters to guess
 window.onload = function(){
     for(i=0;i<alphabet.length;i++){
@@ -78,11 +84,11 @@ document.addEventListener("keyup", keyDownTextField);
 
 // USER IS SELECTING LETTERS
       if (keyCode !== `Enter` && start === 1) {
-          
         keyCode=keyCode.toUpperCase();
     // Most logic for game begins here
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
+                addGuess(keyCode);
                 // runs each guess through the found function
                 let func = found(keyCode);
                 console.log(`This is a test after func: ${func}`);
