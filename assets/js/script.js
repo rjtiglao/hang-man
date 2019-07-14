@@ -13,6 +13,23 @@ let hangMan = [];
 let counter = 0;
 let start = 0;
 
+//found function - runs if a letter matches
+let found = function(e){
+    for(i=0;i<hangMan.length;i++){
+        let upper = hangMan[i].toUpperCase();
+            if(upper === e){
+                let par = document.createElement(`p`);
+                par.append(e);
+                let removeGuess = document.getElementById(e + "2");
+                removeGuess.replaceWith(par);
+
+                alert(`This is ${e}`)
+                
+                
+                // document.getElementById(e + "2").appendChild(par);
+            }
+        };
+     }
 //loads available letters to guess
 window.onload = function(){
     for(i=0;i<alphabet.length;i++){
@@ -57,13 +74,15 @@ document.addEventListener("keyup", keyDownTextField);
 
 // USER IS SELECTING LETTERS
       if (keyCode !== `Enter` && start === 1) {
-          alert(`Hidden Choice: ${compChoice}`);
-          alert(`Hangman Array: ${hangMan}`)
+          
         keyCode=keyCode.toUpperCase();
     
     // Most logic for game begins here
         for (i=0;i<alphabet.length;i++){
             if(alphabet[i] === keyCode){
+                // runs each guess through the found function
+                found(keyCode);
+
                 // Removes alphabet element from the letters left available on the left display
                 let removeGuess = document.getElementById(keyCode);
                 removeGuess.remove();
@@ -72,8 +91,6 @@ document.addEventListener("keyup", keyDownTextField);
                 // Transferrs key value from alphabet array to userGuess array
                 alphabet.splice(i, 1);
                 userGuess.push(keyCode);
-
-
             }
         }
 

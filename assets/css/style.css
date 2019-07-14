@@ -82,12 +82,17 @@
     
 }
 
+.answer{
+    display: flex;
+    flex-direction: row;
+}
 
 .answer p{
     font-size: 300%;
     color: white;
     opacity: 1;
 }
+
 .user p{
     font-size: 300%;
 }
