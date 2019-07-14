@@ -64,6 +64,21 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+#buttons {
+    padding-top: 60px;
+  }
+  .letter {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+  }
+
+  .letter-button-color {
+    color: darkcyan;
+  }
 
 .instructions{
     position:absolute;
