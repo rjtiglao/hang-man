@@ -40,8 +40,6 @@ let found = function(e){
             }
         }
         if(x>0){
-            let audio = new Audio(`./assets/media/ding.mp3`);
-            audio.play();
             return true
         }
         else{
@@ -76,11 +74,12 @@ function keyDownTextField(e) {
     var keyCode = e.key;
     console.log(keyCode);
     console.log(start);
-    let audio = new Audio(`./assets/media/sun-moon2.m4a`);
-    audio.play();
+  
 
     /// GAME STARTS AFTER ENTER
       if(keyCode === 'Enter' && start === 0) {
+        let audio = new Audio(`./assets/media/sun-moon2.m4a`);
+        audio.play();
       alert(`Here are the rules:  `);
       alert("If you guess the whole word, you win!");
       alert(`If you guess wrong ${lose} times you lose! `);
