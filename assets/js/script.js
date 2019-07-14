@@ -27,7 +27,6 @@ let found = function(e){
             if(upper === e){
                 x++
                 winCounter++
-                alert(`${upper} === ${e}`)
                 let par = document.createElement(`p`);
                 par.append(e);
                 let removeGuess = document.getElementById(e + "2");
@@ -121,7 +120,7 @@ function keyDownTextField(e) {
                     guessCount++
                     alert(`You have guessed ${guessCount}/${lose}.`);
                     if(guessCount === lose){
-                        alert(`User has lost the game`);
+                        alert(`You have lost the game. Better luck next time!`);
                         document.location.reload(true);
                     }
                 }
