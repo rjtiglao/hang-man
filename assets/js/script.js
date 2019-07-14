@@ -64,7 +64,7 @@ document.addEventListener("keyup", keyDownTextField);
         for(i=0;i<hangMan.length;i++){
             let par = document.createElement(`p`);
             let hang = hangMan[i];
-            par.className = "class letter-button letter letter-button-color";
+            par.className = "class letter-buttonA letterA letter-button-colorA";
             par.id = hang.toUpperCase() + "2";
             par.append("_");
             document.getElementById("target").appendChild(par);

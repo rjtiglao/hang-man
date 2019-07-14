@@ -108,13 +108,16 @@
     border-style: solid;
     background-color: #11DDF2;
 }
-.letter {
+
+.letterA {
     width: 30px;
     height: 30px;
-    border-style: solid;
     padding: 2px;
     float: left;
     margin: 2px;
+  }
+  .letter-button-colorA {
+    color: #BB48A5;
   }
 
 #buttons {
