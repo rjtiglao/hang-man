@@ -86,11 +86,13 @@ document.addEventListener("keyup", keyDownTextField);
                 // runs each guess through the found function
                 let func = found(keyCode);
                 console.log(`This is a test after func: ${func}`);
+                /// return of function goes through win/loss logic
                 if(func === false){
                     guessCount++
                     console.log(`gustCount is now ${guessCount}`);
                     if(guessCount === lose){
                         alert(`User has lost the game`);
+                        document.location.reload(true);
                     }
                 }
 
